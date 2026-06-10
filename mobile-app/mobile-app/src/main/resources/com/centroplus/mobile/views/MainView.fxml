@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.centroplus.mobile.controllers.MainController"
+            styleClass="root">
+    
+    <top>
+        
+        <VBox styleClass="header">
+            
+            <Label text="CentroPlus"
+                   styleClass="titulo-app"/>
+            
+            <Label text="App académica y deportiva"
+                   styleClass="subtitulo-app"/>
+            
+        </VBox>
+        
+    </top>
+    
+    <center>
+        
+        <TabPane tabClosingPolicy="UNAVAILABLE"
+                 side="BOTTOM"
+                 styleClass="tabs-modernas">
+            
+            <tabs>
+                
+                <Tab text="Inicio">
+                    
+                    <VBox spacing="20"
+                          styleClass="contenedor">
+                        
+                        <HBox spacing="15">
+                            
+                            <VBox styleClass="card-mini">
+                                
+                                <Label text="Actividades"/>
+                                
+                                <Label fx:id="labelActividades"
+                                       text="0"
+                                       styleClass="numero-card"/>
+                                
+                            </VBox>
+                            
+                            <VBox styleClass="card-mini">
+                                
+                                <Label text="Reservas"/>
+                                
+                                <Label fx:id="labelReservas"
+                                       text="0"
+                                       styleClass="numero-card"/>
+                                
+                            </VBox>
+                            
+                        </HBox>
+                        
+                    </VBox>
+                    
+                </Tab>
+                
+                <!-- ACTIVIDADES -->
+                
+                <Tab text="Actividades">
+                    
+                    <VBox spacing="18"
+                          styleClass="contenedor">
+                        
+                        <Label text="Actividades"
+                               styleClass="titulo-seccion"/>
+                        
+                        <ListView fx:id="listaActividades"
+                                  prefHeight="450"
+                                  styleClass="lista-moderna"/>
+                        
+                        <Button text="Reservar plaza"
+                                styleClass="boton-principal"
+                                onAction="#reservarActividad"/>
+                        
+                    </VBox>
+                    
+                </Tab>
+                
+                <!-- RESERVAS -->
+                
+                <Tab text="Reservas">
+                    
+                    <VBox spacing="18"
+                          styleClass="contenedor">
+                        
+                        <Label text="Mis reservas"
+                               styleClass="titulo-seccion"/>
+                        
+                        <ListView fx:id="listaReservas"
+                                  prefHeight="420"
+                                  styleClass="lista-moderna"/>
+                        
+                        <Button text="Cancelar reserva"
+                                styleClass="boton-secundario"
+                                onAction="#cancelarReserva"/>
+                        
+                    </VBox>
+                    
+                </Tab>
+                
+                <!-- INCIDENCIAS -->
+                
+                <Tab text="Incidencias">
+                    
+                    <VBox spacing="18"
+                          styleClass="contenedor">
+                        
+                        <Label text="Nueva incidencia"
+                               styleClass="titulo-seccion"/>
+                        
+                        <TextField fx:id="textoAsunto"
+                                   promptText="Asunto"
+                                   styleClass="input-moderno"/>
+                        
+                        <TextArea fx:id="textoDescripcion"
+                                  promptText="Describe el problema..."
+                                  prefHeight="110"
+                                  wrapText="true"
+                                  styleClass="input-moderno"/>
+                        
+                        <Button text="Enviar incidencia"
+                                styleClass="boton-principal"
+                                onAction="#enviarIncidencia"/>
+                        
+                        <Label text="Incidencias"
+                               styleClass="titulo-seccion"/>
+                        
+                        <ListView fx:id="listaIncidencias"
+                                  prefHeight="350"
+                                  styleClass="lista-moderna"/>
+                        
+                        <HBox spacing="10">
+                            
+                            <Button text="Ver"
+                                    styleClass="boton-secundario"
+                                    onAction="#verIncidencia"/>
+                            
+                            <Button text="Eliminar"
+                                    styleClass="boton-danger"
+                                    onAction="#eliminarIncidencia"/>
+                            
+                        </HBox>
+                        
+                    </VBox>
+                    
+                </Tab>
+                
+            </tabs>
+            
+        </TabPane>
+        
+    </center>
+    
+</BorderPane>

@@ -1,0 +1,298 @@
+.root {
+    -fx-background-color: #f3f6fb;
+    -fx-font-family: "Segoe UI";
+}
+
+.header {
+
+    -fx-padding: 32 24 28 24;
+
+    -fx-spacing: 6;
+
+    -fx-background-color: linear-gradient(to right,
+            #0f766e,
+            #14b8a6);
+}
+
+.titulo-app {
+
+    -fx-font-size: 30px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: white;
+}
+
+.subtitulo-app {
+
+    -fx-font-size: 14px;
+
+    -fx-text-fill: rgba(255, 255, 255, 0.88);
+}
+
+.contenedor {
+
+    -fx-padding: 22;
+}
+
+.seccion {
+
+    -fx-background-color: white;
+
+    -fx-background-radius: 24;
+
+    -fx-padding: 22;
+
+    -fx-spacing: 16;
+
+    -fx-effect: dropshadow(gaussian,
+            rgba(0, 0, 0, 0.06),
+            18,
+            0,
+            0,
+            5);
+}
+
+.card-mini {
+
+    -fx-background-color: white;
+
+    -fx-background-radius: 22;
+
+    -fx-padding: 18;
+
+    -fx-spacing: 10;
+
+    -fx-pref-width: 160;
+
+    -fx-effect: dropshadow(gaussian,
+            rgba(0, 0, 0, 0.08),
+            14,
+            0,
+            0,
+            4);
+}
+
+.numero-card {
+
+    -fx-font-size: 30px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #0f766e;
+}
+
+.titulo-seccion {
+
+    -fx-font-size: 20px;
+
+    -fx-font-weight: bold;
+
+    -fx-text-fill: #0f172a;
+}
+
+
+.boton-principal {
+
+    -fx-background-color: linear-gradient(to right,
+            #ea580c,
+            #f97316);
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 14px;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 16;
+
+    -fx-padding: 14 20;
+
+    -fx-cursor: hand;
+}
+
+.boton-principal:hover {
+
+    -fx-background-color: linear-gradient(to right,
+            #dc5200,
+            #fb923c);
+}
+
+.boton-secundario {
+
+    -fx-background-color: #e2e8f0;
+
+    -fx-text-fill: #0f172a;
+
+    -fx-font-size: 14px;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 16;
+
+    -fx-padding: 14 20;
+
+    -fx-cursor: hand;
+}
+
+.boton-secundario:hover {
+
+    -fx-background-color: #cbd5e1;
+}
+
+.boton-danger {
+
+    -fx-background-color: #ef4444;
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 14px;
+
+    -fx-font-weight: bold;
+
+    -fx-background-radius: 16;
+
+    -fx-padding: 14 20;
+
+    -fx-cursor: hand;
+}
+
+.boton-danger:hover {
+
+    -fx-background-color: #dc2626;
+}
+
+
+.input-moderno {
+
+    -fx-background-color: #f8fafc;
+
+    -fx-background-radius: 14;
+
+    -fx-border-radius: 14;
+
+    -fx-border-color: #dbe3ee;
+
+    -fx-padding: 14;
+
+    -fx-font-size: 14px;
+}
+
+
+.lista-moderna {
+
+    -fx-background-color: transparent;
+
+    -fx-border-color: transparent;
+
+    -fx-fixed-cell-size: 55;
+}
+
+.lista-moderna .list-cell {
+
+    -fx-background-color: #f8fafc;
+
+    -fx-background-radius: 14;
+
+    -fx-padding: 14;
+
+    -fx-text-fill: #0f172a;
+
+    -fx-font-size: 14px;
+}
+
+.lista-moderna .list-cell:selected {
+
+    -fx-background-color: #14b8a6;
+
+    -fx-text-fill: white;
+}
+
+
+.scroll-pane {
+
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+
+    -fx-background-color: transparent;
+}
+
+
+.tabs-modernas {
+
+    -fx-background-color: transparent;
+}
+
+
+.tabs-modernas .tab-header-area {
+
+    -fx-padding: 10 10 18 10;
+
+    -fx-background-color: white;
+}
+
+.tabs-modernas .tab-header-background {
+
+    -fx-background-color: white;
+
+    -fx-effect: null;
+}
+
+.tabs-modernas .tab {
+
+    -fx-background-color: transparent;
+
+    -fx-background-radius: 18;
+
+    -fx-border-radius: 18;
+
+    -fx-padding: 12 24;
+
+    -fx-focus-color: transparent;
+
+    -fx-faint-focus-color: transparent;
+}
+
+
+.tabs-modernas .tab:selected {
+
+    -fx-background-color: #14b8a6;
+}
+
+
+.tabs-modernas .tab:selected .tab-label {
+
+    -fx-text-fill: white;
+}
+
+
+.tabs-modernas .tab-label {
+
+    -fx-text-fill: #64748b;
+
+    -fx-font-size: 13px;
+
+    -fx-font-weight: bold;
+}
+
+.tabs-modernas .tab:focused {
+
+    -fx-focus-color: transparent;
+
+    -fx-faint-focus-color: transparent;
+}
+
+
+.tabs-modernas .tab-content-area {
+
+    -fx-background-color: transparent;
+}
+
+.tab-pane *.tab-header-area *.tab-header-background {
+
+    -fx-background-insets: 0;
+
+    -fx-effect: null;
+}
