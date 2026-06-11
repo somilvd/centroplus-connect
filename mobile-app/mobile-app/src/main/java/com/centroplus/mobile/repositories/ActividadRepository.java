@@ -11,7 +11,7 @@ public class ActividadRepository {
         actividades = new ArrayList<>();
         actividades.add(new Actividad(1, "Fútbol", "Deportiva", 60, 15, 20, 10));
         actividades.add(new Actividad(2, "Boxeo", "Deportiva", 45, 12, 15, 15));
-        actividades.add(new Actividad(3, "Informatica", "Academica", 90, 25, 30, 12));
+        actividades.add(new Actividad(3, "Programación", "Academica", 90, 25, 30, 12));
     }
 
     public List<Actividad> findAll() {
