@@ -22,37 +22,36 @@ public class ActividadService {
 
     public boolean reservarPlaza(Integer idActividad) {
         Actividad actividad = repository.findById(idActividad);
-        if (actividad == null) {
+        if (actividad == null || (actividad.getPlazasOcupadas() >= actividad.getPlazasMaximas())) {
             return false;
         }
-        if (actividad.getPlazasOcupadas() >= actividad.getPlazasMaximas()) {
-            return false;
-        }
+
         actividad = new Actividad(actividad.getId(), actividad.getNombre(), actividad.getTipoActividad(),
                 actividad.getDuracion(), actividad.getPrecio(), actividad.getPlazasMaximas(),
                 actividad.getPlazasOcupadas() + 1);
-        repository.update(actividad);
-        return true;
+                
+        return repository.update(actividad);
     }
 
     public boolean cancelarPlaza(Integer idActividad) {
         Actividad actividad = repository.findById(idActividad);
-        if (actividad == null) {
+
+        if (actividad == null || actividad.getPlazasOcupadas() <= 0) {
             return false;
         }
-        if (actividad.getPlazasOcupadas() <= 0) {
-            return false;
-        }
+
         actividad = new Actividad(actividad.getId(), actividad.getNombre(), actividad.getTipoActividad(),
                 actividad.getDuracion(), actividad.getPrecio(), actividad.getPlazasMaximas(),
                 actividad.getPlazasOcupadas() - 1);
-        repository.update(actividad);
-        return true;
+
+        return repository.update(actividad);
     }
 
     public List<Actividad> findCompletas() {
         List<Actividad> completas = new ArrayList<>();
+
         for (Actividad actividad : repository.findAll()) {
+
             if (actividad.getPlazasOcupadas() >= actividad.getPlazasMaximas()) {
                 completas.add(actividad);
             }

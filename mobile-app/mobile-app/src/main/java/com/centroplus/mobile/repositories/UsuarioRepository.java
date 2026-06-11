@@ -26,23 +26,25 @@ public class UsuarioRepository {
         return null;
     }
 
-    public void save(Usuario usuario) {
-        usuarios.add(usuario);
+    public boolean save(Usuario usuario) {
+        return usuarios.add(usuario);
     }
 
-    public void update(Usuario usuarioActualizado) {
+    public boolean update(Usuario usuarioActualizado) {
         for (int i = 0; i < usuarios.size(); i++) {
             if (usuarios.get(i).getId().equals(usuarioActualizado.getId())) {
                 usuarios.set(i, usuarioActualizado);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void delete(Integer id) {
+    public boolean delete(Integer id) {
         Usuario usuarioEliminar = findById(id);
         if (usuarioEliminar != null) {
-            usuarios.remove(usuarioEliminar);
+            return usuarios.remove(usuarioEliminar);
         }
+        return false;
     }
 }

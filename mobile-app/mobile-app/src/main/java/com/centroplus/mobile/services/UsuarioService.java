@@ -5,17 +5,17 @@ import com.centroplus.mobile.models.Usuario;
 import com.centroplus.mobile.repositories.*;
 
 public class UsuarioService {
-    private UsuarioRepository repository;
+    private UsuarioRepository usuarioRepository;
 
     public UsuarioService() {
-        repository = new UsuarioRepository();
+        usuarioRepository = new UsuarioRepository();
     }
 
     public List<Usuario> findAll() {
-        return repository.findAll();
+        return usuarioRepository.findAll();
     }
 
     public Usuario findById(Integer id) {
-        return repository.findById(id);
+        return usuarioRepository.findById(id);
     }
 }

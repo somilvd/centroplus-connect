@@ -24,23 +24,25 @@ public class IncidenciaRepository {
         return null;
     }
 
-    public void save(Incidencia incidencia) {
-        incidencias.add(incidencia);
+    public boolean save(Incidencia incidencia) {
+        return incidencias.add(incidencia);
     }
 
-    public void update(Incidencia incidenciaActualizada) {
+    public boolean update(Incidencia incidenciaActualizada) {
         for (int i = 0; i < incidencias.size(); i++) {
             if (incidencias.get(i).getId() == incidenciaActualizada.getId()) {
                 incidencias.set(i, incidenciaActualizada);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void delete(Integer id) {
+    public boolean delete(Integer id) {
         Incidencia incidencia = findById(id);
         if (incidencia != null) {
-            incidencias.remove(incidencia);
+            return incidencias.remove(incidencia);
         }
+        return false;
     }
 }

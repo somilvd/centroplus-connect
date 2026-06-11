@@ -24,23 +24,25 @@ public class ReservaRepository {
         return null;
     }
 
-    public void save(Reserva reserva) {
-        reservas.add(reserva);
+    public boolean save(Reserva reserva) {
+        return reservas.add(reserva);
     }
 
-    public void update(Reserva reservaActualizada) {
+    public boolean update(Reserva reservaActualizada) {
         for (int i = 0; i < reservas.size(); i++) {
             if (reservas.get(i).getId().equals(reservaActualizada.getId())) {
                 reservas.set(i, reservaActualizada);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void delete(Integer id) {
+    public boolean delete(Integer id) {
         Reserva reserva = findById(id);
         if (reserva != null) {
-            reservas.remove(reserva);
+            return reservas.remove(reserva);
         }
+        return false;
     }
 }

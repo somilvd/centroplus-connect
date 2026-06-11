@@ -18,32 +18,31 @@ public class IncidenciaService {
     }
 
     public boolean crearIncidencia(Integer idUsuario, String asunto, String descripcion) {
-        if (asunto == null || asunto.isEmpty()) {
-            return false;
-        }
-        if (descripcion == null || descripcion.isEmpty()) {
+        if (asunto == null || asunto.isEmpty() || descripcion == null || descripcion.isEmpty()) {
             return false;
         }
         Integer nuevoId = incidenciaRepository.findAll().size() + 1;
         Incidencia incidencia = new Incidencia(nuevoId, idUsuario, asunto, descripcion, LocalDate.now().toString(),
                 "ABIERTA");
-        incidenciaRepository.save(incidencia);
-        return true;
+        return incidenciaRepository.save(incidencia);
     }
 
     public boolean cambiarEstado(Integer id, String estado) {
         Incidencia incidencia = incidenciaRepository.findById(id);
+
         if (incidencia == null) {
             return false;
         }
+
         incidencia.setEstado(estado);
-        incidenciaRepository.update(incidencia);
-        return true;
+        return incidenciaRepository.update(incidencia);
     }
 
     public List<Incidencia> findByUsuario(Integer idUsuario) {
         List<Incidencia> incidenciasUsuario = new ArrayList<>();
+
         for (Incidencia incidencia : incidenciaRepository.findAll()) {
+
             if (incidencia.getIdUsuario() == idUsuario) {
                 incidenciasUsuario.add(incidencia);
             }
@@ -60,7 +59,6 @@ public class IncidenciaService {
                 return incidencia;
             }
         }
-
         return null;
     }
 
@@ -72,9 +70,6 @@ public class IncidenciaService {
 
             return false;
         }
-
-        incidenciaRepository.delete(id);
-
-        return true;
+        return incidenciaRepository.delete(id);
     }
 }

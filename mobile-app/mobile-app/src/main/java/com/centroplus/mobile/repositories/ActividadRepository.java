@@ -27,23 +27,25 @@ public class ActividadRepository {
         return null;
     }
 
-    public void save(Actividad actividad) {
-        actividades.add(actividad);
+    public boolean save(Actividad actividad) {
+        return actividades.add(actividad);
     }
 
-    public void update(Actividad actividadActualizada) {
+    public boolean update(Actividad actividadActualizada) {
         for (int i = 0; i < actividades.size(); i++) {
             if (actividades.get(i).getId() == actividadActualizada.getId()) {
                 actividades.set(i, actividadActualizada);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
-    public void delete(Integer id) {
+    public boolean delete(Integer id) {
         Actividad actividad = findById(id);
         if (actividad != null) {
-            actividades.remove(actividad);
+            return actividades.remove(actividad);
         }
+        return false;
     }
 }

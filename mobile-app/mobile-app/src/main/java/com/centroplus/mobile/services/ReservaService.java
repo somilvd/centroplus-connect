@@ -15,7 +15,6 @@ public class ReservaService {
     public ReservaService() {
 
         reservaRepository = new ReservaRepository();
-        new UsuarioService();
         actividadService = new ActividadService();
     }
 
@@ -35,18 +34,16 @@ public class ReservaService {
         if (disponibles <= 0)
             return false;
 
-        Reserva nueva = new Reserva(
+        Reserva nuevaReserva = new Reserva(
                 reservaRepository.findAll().size() + 1,
                 idUsuario,
                 idActividad,
                 LocalDate.now().toString(),
                 "ACTIVA");
 
-        reservaRepository.save(nueva);
+        reservaRepository.save(nuevaReserva);
 
-        actividadService.reservarPlaza(idActividad);
-
-        return true;
+        return actividadService.reservarPlaza(idActividad);
     }
 
     public boolean cancelarReserva(Integer idReserva) {
@@ -61,8 +58,6 @@ public class ReservaService {
 
         reserva.setEstado("CANCELADA");
 
-        reservaRepository.update(reserva);
-
-        return true;
+        return reservaRepository.update(reserva);
     }
 }
